@@ -7,4 +7,49 @@ body{
     padding: 0;
     box-sizing: border-box;
     font-family: IRANSans;
+    direction: rtl;
+}
+
+#header{
+    background-color: #6fd3f2;
+    width: 100%;
+    height: 5rem;
+}
+#header .menu{
+    width: 20%;
+    height: 100%;
+    position: absolute;
+    border-radius: 5px;
+    display: grid;
+    grid-template-rows: 5rem 5rem 5rem;
+    grid-template-columns: 80% 20%;
+    place-items: center;
+    justify-content: center;
+    background-color: #4271d6;
+    z-index: 10;
+    visibility: hidden;
+}
+#header .menu h3{
+    color: #fff;
+}
+#header .menu i{
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+}
+#header .top-header{
+    cursor: pointer;
+}
+#header .top-header i{
+    font-size: 1.5rem;
+    margin: 1.7rem 16.1% 0 0;
+    color: #2e1942;
+}
+#header .top-header span{
+    display: inline-block;
+    position: absolute;
+    margin: 0.8rem 15% 0 0;
+    background-color: #8fa3bc;
+    padding: 3px;
+    border-radius: 5px;
 }
