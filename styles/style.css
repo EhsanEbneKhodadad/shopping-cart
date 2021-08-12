@@ -37,21 +37,15 @@ body{
     cursor: pointer;
 }
 #header .menu img{
-    width: 30%;
+    width: 25%;
 }
 #header .menu .menu-products{
     grid-column: 1/3;
     display: grid;
-    grid-template-columns: 80% 20%;
-    place-items: center;
-}
-#header .menu-products div{
-    display: inline-block;
-    margin-right: 1rem;
 }
 #header .menu-products div div{
     display: inline-block;
-    margin: 1.5rem;
+    margin: 1.1rem;
 }
 #header .menu p{
     color: #4271d6;
@@ -77,10 +71,7 @@ body{
     color: #2e1942;
     display: block;
 }
-#header .menu .center{
-    text-align: center;
-}
-#header .menu .center i{
+#header .menu .amount i{
     color: #4271d6;
 }
 #header .info-price{

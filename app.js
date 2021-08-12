@@ -6,6 +6,7 @@ const menuProducts = document.querySelector('.menu-products')
 const openBnt = document.querySelector('.fa-shopping-cart')
 const backdrop = document.querySelector('.backdrop')
 const closeBtn = document.querySelector('.close-menu')
+const deleteAll = document.querySelector('.delete')
 let cart = []
 
 
@@ -62,20 +63,30 @@ class Show{
         cart.map((item) => {
             result+= `  
             <div>
-            <img src=${item.image} alt=${item.title}>
+                <img src=${item.image} alt=${item.title}>
                 <div>
                     <p>${item.title}</p>
                     <p>${item.price}</p>
-                    <button id=${item.id}>حذف</button>
+                    <button id=${item.id} class="delete-one">حذف</button>
+                </div>
+                <div class="amount">
+                    <i class="fas fa-chevron-up"></i>
+                    <span>${item.amount}</span>
+                    <i class="fas fa-chevron-down"></i>
                 </div>
             </div>
-            <div class="center">
-                <i class="fas fa-chevron-up"></i>
-                <span>${item.amount}</span>
-                <i class="fas fa-chevron-down"></i>
-            </div>`
+            `
         })
         menuProducts.innerHTML = result
+        const deleteOne = [...document.querySelectorAll('.delete-one')]
+        deleteOne.map((item) => {
+            item.addEventListener('click', (e) => {
+                this.deleteOneProduct(e.target.id)
+                menuProducts.removeChild(item.parentElement.parentElement)
+                this.cartInfo()
+            })
+        })
+
     }
 
     cartInfo(){
@@ -97,6 +108,23 @@ class Show{
         menu.classList.remove('open-menu')
         backdrop.classList.remove('grey')
     }
+    deleteProducts(){
+        deleteAll.addEventListener('click', this.deleteAllProducts)
+    }
+
+    deleteAllProducts(){
+        cart.splice(0,cart.length)
+        Save.saveToStorage('cart', cart)
+        while(menuProducts.children.length != 0){
+            menuProducts.removeChild(menuProducts.children[0])
+            totalPrice.textContent = 0
+            span.textContent = 0
+        }
+    }
+    deleteOneProduct(id){
+        cart = cart.filter(item => item.id !== id)
+        Save.saveToStorage('cart', cart)
+    }
 }
 
 class Save{
@@ -104,7 +132,7 @@ class Save{
         localStorage.setItem(title, JSON.stringify(products))
     }
     static getFromStorage(){
-        if(localStorage.getItem('cart') != null)
+        if(localStorage.getItem('cart'))
             cart = JSON.parse(localStorage.getItem('cart'))
     }
     static getProduct(id){
@@ -130,5 +158,6 @@ document.addEventListener('DOMContentLoaded', () => {
         openBnt.addEventListener('click', show.openMenu)
         closeBtn.addEventListener('click', show.closeMenu)
         backdrop.addEventListener('click', show.closeMenu)
+        show.deleteProducts()
     })
 })
