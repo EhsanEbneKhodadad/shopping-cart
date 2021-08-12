@@ -48,9 +48,16 @@ class Show{
         const btns =[...document.querySelectorAll('.add-product')]
         btns.map((item) => {
             item.addEventListener('click', (e) =>{
-               const product = {...Save.getProduct(e.target.id), amount: 1}
+               let product = {...Save.getProduct(e.target.id), amount: 1}
+
+               const index = cart.findIndex(item => item.id ===product.id)
+               if(index > -1){
+                   product = cart[index]
+                   product.amount++
+               }else{
                 cart = [...cart, product]
-                Save.saveToStorage('cart', cart)
+               }
+               Save.saveToStorage('cart', cart)
                 this.cartInfo()
                 this.showMenu(cart)
                 this.openMenu()
@@ -70,23 +77,17 @@ class Show{
                     <button id=${item.id} class="delete-one">حذف</button>
                 </div>
                 <div class="amount">
-                    <i class="fas fa-chevron-up"></i>
+                    <i class="fas fa-chevron-up" id=${item.id}></i>
                     <span>${item.amount}</span>
-                    <i class="fas fa-chevron-down"></i>
+                    <i class="fas fa-chevron-down" id=${item.id}></i>
                 </div>
             </div>
             `
         })
         menuProducts.innerHTML = result
-        const deleteOne = [...document.querySelectorAll('.delete-one')]
-        deleteOne.map((item) => {
-            item.addEventListener('click', (e) => {
-                this.deleteOneProduct(e.target.id)
-                menuProducts.removeChild(item.parentElement.parentElement)
-                this.cartInfo()
-            })
-        })
-
+        this.deleteProduct()
+        this.increase()
+        this.decrease()
     }
 
     cartInfo(){
@@ -112,6 +113,17 @@ class Show{
         deleteAll.addEventListener('click', this.deleteAllProducts)
     }
 
+    deleteProduct(){
+        const deleteOne = [...document.querySelectorAll('.delete-one')]
+        deleteOne.map((item) => {
+            item.addEventListener('click', (e) => {
+                this.deleteOneProduct(e.target.id)
+                menuProducts.removeChild(item.parentElement.parentElement)
+                this.cartInfo()
+            })
+        })
+    }
+
     deleteAllProducts(){
         cart.splice(0,cart.length)
         Save.saveToStorage('cart', cart)
@@ -124,6 +136,44 @@ class Show{
     deleteOneProduct(id){
         cart = cart.filter(item => item.id !== id)
         Save.saveToStorage('cart', cart)
+    }
+
+    increase(){
+       const btns = [...document.querySelectorAll('.fa-chevron-up')]
+       btns.map((item) => {
+           item.addEventListener('click', (e) => {
+            const index = cart.findIndex(item => item.id ===e.target.id)
+            if(index > -1){
+                const product = cart[index]
+                product.amount++
+                Save.saveToStorage('cart', cart)
+                this.cartInfo()
+                this.showMenu(cart)
+            }
+           })
+       })
+    }
+
+    decrease(){
+        const btns = [...document.querySelectorAll('.fa-chevron-down')]
+       btns.map((item) => {
+           item.addEventListener('click', (e) => {
+            const index = cart.findIndex(item => item.id ===e.target.id)
+            const product = cart[index]
+            if(index > -1){
+                if(product.amount>1){
+                    product.amount--
+                    Save.saveToStorage('cart', cart)
+                    this.cartInfo()
+                    this.showMenu(cart)
+                }else{
+                    this.deleteOneProduct(e.target.id)
+                    menuProducts.removeChild(item.parentElement.parentElement)
+                    this.cartInfo()
+                }
+            }
+           })
+       })
     }
 }
 

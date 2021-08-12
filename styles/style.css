@@ -36,19 +36,27 @@ body{
     color: #2e1942;
     cursor: pointer;
 }
-#header .menu img{
-    width: 25%;
-}
 #header .menu .menu-products{
     grid-column: 1/3;
     display: grid;
+}
+#header .menu-products div{
+    display: grid;
+    grid-template-columns: 25% 55% 20%;
+    place-items: center;
 }
 #header .menu-products div div{
     display: inline-block;
     margin: 1.1rem;
 }
+#header .menu-products img{
+    width: 100%;
+}
 #header .menu p{
     color: #4271d6;
+}
+#header .menu .amount{
+    text-align: center;
 }
 #header .menu div button{
     background-color: inherit;
@@ -90,7 +98,8 @@ body{
     display: inline-block;
     position: absolute;
     margin: 0.8rem 15% 0 0;
-    background-color: #8fa3bc;
+    background-color: #4271d6;
+    color: #fff;
     padding: 3px;
     border-radius: 5px;
 }
@@ -115,6 +124,9 @@ body{
     border-radius: 8px;
     -webkit-transform: translateY(-8px);
     transform: translateY(-8px);
+}
+#main div{
+    text-align: center;
 }
 #main div img{
     width: 50%;
