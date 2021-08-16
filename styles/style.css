@@ -11,7 +11,7 @@ body{
 }
 
 #header{
-    background-color: #6fd3f2;
+    background: linear-gradient(to left, #058fff, #021879);
     width: 100%;
     height: 5rem;
 }
@@ -39,11 +39,11 @@ body{
     overflow: scroll;
 }
 #header h3{
-    color: #6fd3f2;
+    color: #021879;
 }
 #header i{
     font-size: 1.5rem;
-    color: #2e1942;
+    color: #021879;
     cursor: pointer;
 }
 #header .menu-products{
@@ -96,6 +96,9 @@ body{
 #header .info-price{
     grid-column: 1/3;
 }
+#header .info-price h4{
+    color: #021879;
+}
 #header .info-delete{
     grid-column: 1/3;
 }
@@ -109,10 +112,9 @@ body{
     display: inline-block;
     position: absolute;
     margin: 0.8rem 15% 0 0;
-    background-color: #4271d6;
+    background-color: inherit;
     color: #fff;
     padding: 3px;
-    border-radius: 5px;
 }
 #main{
     justify-content: center;
@@ -184,6 +186,9 @@ body{
     #main button{
         font-size: 10px;
     }
+    #header .top-header span{
+        margin: 0.8rem 14% 0 0;
+    }
 }
 @media (max-width: 768px) {
     #main div img{
@@ -206,5 +211,8 @@ body{
 @media (max-width: 480px) {
     #header .menu-products img{
         width: 100%;
+    }
+    #header .top-header span{
+        margin: 0.8rem 12% 0 0;
     }
 }

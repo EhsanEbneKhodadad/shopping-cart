@@ -96,7 +96,7 @@ class Show{
             price+=item.price*item.amount
         })
         span.textContent = items
-        totalPrice.textContent = price
+        totalPrice.textContent = ` مجموع قیمت : ${price} `
     }
 
     openMenu(){
