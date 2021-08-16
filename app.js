@@ -16,10 +16,10 @@ class Get{
             const products = await fetch('products.json')
             let data = await products.json()
             data = data.items.map((item) => {
-            const {id} = item.sys
-            const {title, price} = item.fields
-            const image = item.fields.image.fields.file.url
-            return{id, title, price, image}
+                const {id} = item.sys
+                const {title, price} = item.fields
+                const image = item.fields.image.fields.file.url
+                return{id, title, price, image}
             })
             return data
         }catch(err){
@@ -37,7 +37,7 @@ class Show{
                 <img src=${item.image} alt=${item.title}>
                 <div>
                     <p>${item.title}</p>
-                    <p>${item.price}</p>
+                    <p>قیمت : ${item.price}</p>
                 </div>
                 <button id=${item.id} class="add-product">افزودن به سبد خرید</button>
                 </div>`
@@ -49,15 +49,13 @@ class Show{
         btns.map((item) => {
             item.addEventListener('click', (e) =>{
                let product = {...Save.getProduct(e.target.id), amount: 1}
-
                const index = cart.findIndex(item => item.id ===product.id)
                if(index > -1){
                    product = cart[index]
                    product.amount++
-               }else{
-                cart = [...cart, product]
-               }
-               Save.saveToStorage('cart', cart)
+               }else
+                    cart = [...cart, product]
+                Save.saveToStorage('cart', cart)
                 this.cartInfo()
                 this.showMenu(cart)
                 this.openMenu()

@@ -3,39 +3,39 @@
     {
       "sys": { "id": "1" },
       "fields": {
-        "title": "محصول اول",
-        "price": 89,
+        "title": "Samsung Galaxy S21 Ultra",
+        "price": 79,
         "image": { "fields": { "file": { "url": "./images/product-1.jpg" } } }
       }
     },
     {
       "sys": { "id": "2" },
       "fields": {
-        "title": "محصول دوم",
-        "price": 29,
+        "title": "Apple iPhone 12 Pro",
+        "price": 79,
         "image": { "fields": { "file": { "url": "./images/product-2.jpg" } } }
       }
     },
     {
       "sys": { "id": "3" },
       "fields": {
-        "title": "محصول سوم",
-        "price": 79,
+        "title": "Apple Watch Series 6",
+        "price": 59,
         "image": { "fields": { "file": { "url": "./images/product-3.jpg" } } }
       }
     },
     {
       "sys": { "id": "4" },
       "fields": {
-        "title": "محصول چهارم",
-        "price": 99,
+        "title": "Samsung Galaxy Watch 3",
+        "price": 59,
         "image": { "fields": { "file": { "url": "./images/product-4.jpg" } } }
       }
     },
     {
       "sys": { "id": "5" },
       "fields": {
-        "title": "محصول پنجم",
+        "title": "Apple AirPods Pro",
         "price": 49,
         "image": { "fields": { "file": { "url": "./images/product-5.jpg" } } }
       }
@@ -43,15 +43,15 @@
     {
       "sys": { "id": "6" },
       "fields": {
-        "title": "محصول ششم",
-        "price": 59,
+        "title": "Samsung Galaxy Buds Live",
+        "price": 49,
         "image": { "fields": { "file": { "url": "./images/product-6.jpg" } } }
       }
     },
     {
       "sys": { "id": "7" },
       "fields": {
-        "title": "محصول هفتم",
+        "title": "2019 Apple MacBook Pro",
         "price": 99,
         "image": { "fields": { "file": { "url": "./images/product-7.jpg" } } }
       }
@@ -59,40 +59,40 @@
     {
       "sys": { "id": "8" },
       "fields": {
-        "title": "محصول هشتم",
-        "price": 49,
+        "title": "Xiaomi Mi 11 ",
+        "price": 79,
         "image": { "fields": { "file": { "url": "./images/product-8.jpg" } } }
       }
     },
     {
       "sys": { "id": "9" },
       "fields": {
-        "title": "محصول نهم",
-        "price": 69,
+        "title": "Xiaomi Mi Watch",
+        "price": 59,
         "image": { "fields": { "file": { "url": "./images/product-9.jpg" } } }
       }
     },
     {
       "sys": { "id": "10" },
       "fields": {
-        "title": "محصول دهم",
-        "price": 20,
+        "title": "Mi True Earbuds Basic 2",
+        "price": 49,
         "image": { "fields": { "file": { "url": "./images/product-10.jpg" } } }
       }
     },
     {
       "sys": { "id": "11" },
       "fields": {
-        "title": "محصول یازدهم",
-        "price": 49,
+        "title": "Huawei P40 Pro",
+        "price": 79,
         "image": { "fields": { "file": { "url": "./images/product-11.jpg" } } }
       }
     },
     {
       "sys": { "id": "12" },
       "fields": {
-        "title": "محصول دوازدهم",
-        "price": 49,
+        "title": "Xiaomi Mi Band 5",
+        "price": 39,
         "image": { "fields": { "file": { "url": "./images/product-12.jpg" } } }
       }
     }
